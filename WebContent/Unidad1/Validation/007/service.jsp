@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
+    import = Unidad1.Validator
     %>
  <%
  %>
@@ -14,8 +15,8 @@
     <body>
         <%
             if (
-                request.getParameter("fulName") != null &&
-                request.getParameter("age") != null
+                request.getParameter("userName") != null &&
+                request.getParameter("age") != null && request.getParameter("age").matches("\\D")
             ){
 
                 Validator validator = new Validator();
@@ -25,8 +26,8 @@
 
                 out.print("<span style='color:green;'>Se han limpiado los parárametros recibidos.</span><br>")
 
-                out.print("<strong>User Name: </strong>%s<br>",userName);
-                out.print("<strong>Age: </strong>%s<br>",age);
+                out.print(String.format("<strong>User Name: </strong>%s<br>",userName));
+                out.print(String.format("<strong>Age: </strong>%s<br>",age));
             }else{
                 out.print("<span style='color:red;'>No existen los parámetros requeridos.</span><br>")
             }

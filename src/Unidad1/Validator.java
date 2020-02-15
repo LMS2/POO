@@ -18,7 +18,6 @@ package Unidad1;
           return userName;
       }
 
-
       /**
         Procesa una edad de usuario y devuelve la cadena validada.
         @param age La edad del ususario como una cadena.
@@ -27,5 +26,14 @@ package Unidad1;
       public int cleanAge(String age){
           age = age.trim().replaceAll("\\D+","");
           return Integer.paraseInt(age);
+      }
+      /**
+        Permite limpiar un campo de texto "text area", eliminando posibles etiquetas de HTML en el contenido.
+        @param age La edad del ususario como una cadena.
+        @return 
+       */ 
+      public String cleanHTMLContent(String htmlContent){
+          htmlContent = htmlContent.trim().replaceAll("</?[^>]+>","");
+          return htmlContent;
       }
  }
